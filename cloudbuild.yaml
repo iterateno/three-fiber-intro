@@ -4,12 +4,6 @@
 # YOUR_REGION europe-west4
 
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-docker.pkg.dev/eivind-test-slett-etter-april/github-com-iterate-react-codebook/react-codebook:latest', '.']
-
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-docker.pkg.dev/eivind-test-slett-etter-april/github-com-iterate-react-codebook/react-codebook:latest']
-
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     args:
