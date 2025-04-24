@@ -1,9 +1,13 @@
-# YOUR_PROJECT eivind-test-slett-etter-april
-# YOUR_REPO react-codebook
-# YOUR_SERVICE_NAME react-codebook
-# YOUR_REGION europe-west4
-
 steps:
+  # Build step
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/eivind-test-slett-etter-april/react-codebook:latest', '.']
+  
+  # Push step
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/eivind-test-slett-etter-april/react-codebook:latest']
+  
+  # Deploy step
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     args:
@@ -12,7 +16,7 @@ steps:
         'deploy',
         'react-codebook',
         '--image',
-        'gcr.io/eivind-test-slett-etter-april/github.com/iterate/react-codebook:latest',
+        'gcr.io/eivind-test-slett-etter-april/react-codebook:latest',
         '--region',
         'europe-west4',
         '--platform',
@@ -20,6 +24,5 @@ steps:
         '--allow-unauthenticated'
       ]
 
-# Add options for logging configuration to fix the service account error
 options:
   logging: 'CLOUD_LOGGING_ONLY'
