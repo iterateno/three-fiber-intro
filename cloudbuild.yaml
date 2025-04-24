@@ -1,6 +1,6 @@
 # YOUR_PROJECT eivind-test-slett-etter-april
 # YOUR_REPO react-codebook
-# YOUR_SERVICE_NAME react-codebook
+# YOUR_SERVICE_NAME iterate/react-codebook
 # YOUR_REGION europe-west4
 
 steps:
@@ -16,7 +16,7 @@ steps:
       [
         'run',
         'deploy',
-        'react-codebook',
+        'iterate/react-codebook',
         '--image',
         'us-docker.pkg.dev/eivind-test-slett-etter-april/react-codebook',
         '--region',
