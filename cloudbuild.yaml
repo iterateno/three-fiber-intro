@@ -5,10 +5,10 @@
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-docker.pkg.dev/eivind-test-slett-etter-april/react-codebook', '.']
+    args: ['build', '-t', 'us-docker.pkg.dev/eivind-test-slett-etter-april/iterate/react-codebook', '.']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-docker.pkg.dev/eivind-test-slett-etter-april/react-codebook']
+    args: ['push', 'us-docker.pkg.dev/eivind-test-slett-etter-april/iterate/react-codebook']
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
@@ -16,9 +16,9 @@ steps:
       [
         'run',
         'deploy',
-        'iterate/react-codebook',
+        'react-codebook',
         '--image',
-        'us-docker.pkg.dev/eivind-test-slett-etter-april/react-codebook',
+        'us-docker.pkg.dev/eivind-test-slett-etter-april/iterate/react-codebook',
         '--region',
         'europe-west4',
         '--platform',
