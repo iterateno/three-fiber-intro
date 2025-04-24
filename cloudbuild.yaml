@@ -20,8 +20,12 @@ steps:
         '--image',
         'us-docker.pkg.dev/eivind-test-slett-etter-april/github.com/iterate/react-codebook/hello',
         '--region',
-        'YOUR_REGION',
+        'europe-west4',
         '--platform',
         'managed',
         '--allow-unauthenticated'
       ]
+
+# Add options for logging configuration to fix the service account error
+options:
+  logging: 'CLOUD_LOGGING_ONLY'
