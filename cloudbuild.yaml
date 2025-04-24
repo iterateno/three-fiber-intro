@@ -1,14 +1,14 @@
 # YOUR_PROJECT eivind-test-slett-etter-april
-# YOUR_REPO github.com/iterate/react-codebook
+# YOUR_REPO react-codebook
 # YOUR_SERVICE_NAME react-codebook
 # YOUR_REGION europe-west4
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-docker.pkg.dev/eivind-test-slett-etter-april/github.com/iterate/react-codebook', '.']
+    args: ['build', '-t', 'us-docker.pkg.dev/eivind-test-slett-etter-april/react-codebook', '.']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-docker.pkg.dev/eivind-test-slett-etter-april/github.com/iterate/react-codebook']
+    args: ['push', 'us-docker.pkg.dev/eivind-test-slett-etter-april/react-codebook']
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
@@ -18,7 +18,7 @@ steps:
         'deploy',
         'react-codebook',
         '--image',
-        'us-docker.pkg.dev/eivind-test-slett-etter-april/github.com/iterate/react-codebook',
+        'us-docker.pkg.dev/eivind-test-slett-etter-april/react-codebook',
         '--region',
         'europe-west4',
         '--platform',
