@@ -1,3 +1,1 @@
-# Hello 2
-
-docker build -t my-app . && docker run -p 3000:8080 my-app
+Bruker akkurat nå kun for https://shiny.apps.iterate.no/ og https://react-codebook.apps.iterate.no/
