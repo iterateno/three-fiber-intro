@@ -31,7 +31,7 @@ function interact(event: React.PointerEvent<HTMLDivElement>) {
     "--rotate-y": `${deg.y}deg`,
   };
 
-  // Apply dynamicStyle to root
+  // Apply dynamicStyle to root.
   for (const [key, value] of Object.entries(dynamicStyle)) {
     document.documentElement.style.setProperty(key, value);
   }
