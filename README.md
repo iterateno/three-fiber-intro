@@ -1,1 +1,1 @@
-Bruker akkurat nå kun for https://shiny.apps.iterate.no/ og https://react-codebook.apps.iterate.no/
+Bruker akkurat nå kun for https://three-fiber-intro.apps.iterate.no/
