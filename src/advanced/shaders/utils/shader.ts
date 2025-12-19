@@ -205,11 +205,10 @@ ${voronoi3D}
     float diff = length(pos - movingPos) * 5.0;
     float rng = (hash11((v + 1.0) * 1000.0) - 0.5);
     float bias = pow(10.0, rng * diff);
-    vec4 v4 = hash41(v * 1000.0);
-    float greenness = biasCenter(v4.x, bias);
-    float redness = biasCenter(v4.y, bias);
-    float saturation = biasCenter(v4.z, bias);
-    float opacity = biasCenter(v4.w, bias);
+    vec3 v3 = hash31(v * 1000.0);
+    float greenness = biasCenter(v3.x, bias);
+    float redness = biasCenter(v3.y, bias);
+    float saturation = biasCenter(v3.z, bias);
 
     vec4 x = vec4(0.0, 0.8 * greenness, 1.0, 1.0);
 
@@ -221,8 +220,6 @@ ${voronoi3D}
     vec4 z1 = lerp(black, y, bias0(saturation, 1.2));
     vec4 z = lerp(z1, white, bias0(saturation, 30.0));
 
-    vec4 w = vec4(z.rgb, lerp(bias0(opacity, 30.0), 1.0, 0.5));
-
-    return w;
+    return vec4(z.rgb, 0.5);
   }
 `;
