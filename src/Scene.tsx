@@ -8,7 +8,8 @@ import {
   useGLTF,
 } from "@react-three/drei";
 import { Canvas, MeshProps } from "@react-three/fiber";
-import { FC, useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import AdvancedScene from "./advanced/AdvancedScene";
 
 const Cat: FC<MeshProps> = ({ scale, position }) => {
   const [selectedAnimation, setSelectedAnimation] = useState("Wait");
@@ -47,7 +48,11 @@ const Cat: FC<MeshProps> = ({ scale, position }) => {
   );
 };
 
-const Scene = () => (
+export type SceneProps = {
+  setSceneIndex: Dispatch<SetStateAction<number>>;
+};
+
+const Scene: FC<SceneProps> = ({ setSceneIndex }) => (
   <Canvas camera={{ position: [0, 2, 8], fov: 50 }}>
     <color args={["#0c1e28"]} attach="background" />
     <directionalLight position={[1, 1, 2]} intensity={6} />
@@ -67,7 +72,22 @@ const Scene = () => (
     </Sphere>
 
     <Cat scale={0.4} position={[0, 0, 0.5]} />
+
+    <Html position={[0, 3.0, 0]} center>
+      <button onClick={() => setSceneIndex(1)}>
+        <p style={{ width: "100px" }}>Next scene →</p>
+      </button>
+    </Html>
   </Canvas>
 );
 
-export default Scene;
+const SelectedScene = () => {
+  const [sceneIndex, setSceneIndex] = useState<number>(0);
+  if (sceneIndex === 0) {
+    return <Scene setSceneIndex={setSceneIndex} />;
+  } else {
+    return <AdvancedScene setSceneIndex={setSceneIndex} />;
+  }
+};
+
+export default SelectedScene;
